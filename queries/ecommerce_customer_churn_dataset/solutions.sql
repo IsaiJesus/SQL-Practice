@@ -100,7 +100,6 @@ HAVING AVG(session_duration_avg) > 30;
 No results
 */
 
-
 -- 9. Uso de descuentos: Calcula la tasa de uso de descuentos (Discount_Usage_Rate) promedio solo para clientes que han realizado más de 15 compras totales.
 SELECT AVG(discount_usage_rate)
 FROM ecommerce
@@ -120,4 +119,40 @@ GROUP BY signup_quarter;
 "Q2"	"18027109.45"
 "Q3"	"18035943.21"
 "Q4"	"17993126.86"
+*/
+
+-- 11. Segmentación de clientes: Clasifica a los clientes en 3 grupos ('Bajo', 'Medio', 'Alto') según su Lifetime_Value y cuenta cuántos clientes hay en cada categoría.
+-- procedure:
+-- Define Low, Medium, High. Then count and group by.
+
+-- Standard Deviation Calculation
+SELECT 
+    MIN(Lifetime_Value) AS minimo,
+    MAX(Lifetime_Value) AS maximo,
+    AVG(Lifetime_Value) AS promedio,
+    SQRT(
+        AVG(Lifetime_Value * Lifetime_Value) - (AVG(Lifetime_Value) * AVG(Lifetime_Value))
+    ) AS STDEV
+FROM ecommerce;
+
+-- "0"	"8987.24"	"1440.626292"	"907.2403702061031"
+-- Medium = 1440.626292 ± 907.2403702061031
+-- Low < 533.3859217938969
+-- Medium 533.3859217938969 - 2347.866662206103
+-- High > 2347.866662206103
+
+SELECT 
+	CASE
+		WHEN lifetime_value < 533.3859217938969 THEN 'Bajo'
+  		WHEN lifetime_value BETWEEN 533.3859217938969 AND 2347.866662206103 THEN 'Medio'
+  		ELSE 'Alto'
+  	END AS lifetime_value_category,
+    COUNT(*) AS lifetime_value_count
+FROM ecommerce
+GROUP BY lifetime_value_category;
+
+/*
+"Alto"	"7126"
+"Bajo"	"5731"
+"Medio"	"37143"
 */
