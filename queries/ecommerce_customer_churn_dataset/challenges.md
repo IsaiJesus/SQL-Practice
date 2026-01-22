@@ -1,3 +1,54 @@
+# Customer Engagement & Churn Analytics Dataset
+URL del dataset: https://www.kaggle.com/datasets/dhairyajeetsingh/ecommerce-customer-behavior-dataset
+
+## Descripción
+Este es un conjunto de datos integral sobre la **participación del cliente (Engagement)** y el **abandono (Churn)**. Contiene datos de comportamiento, demográficos y transaccionales de **50,000 clientes** de una plataforma global de comercio electrónico y suscripciones.
+
+El dataset captura **25 características distintas** que proporcionan una visión de 360 grados de las interacciones de los clientes y sus patrones de compromiso.
+
+---
+
+## Características del Dataset
+* **Registros:** 50,000 clientes.
+* **Atributos:** 25 columnas.
+* **Tipos de datos:** Mixtos (Numéricos, categóricos, objetos).
+* **Cobertura Geográfica:** Global (USA, UK, Alemania, Canadá, India, Japón, Francia, Australia).
+* **Periodo de tiempo:** Registra el viaje del cliente desde el registro hasta su estado actual.
+
+---
+
+## Categorías de las Columnas
+
+### 1. Demografía del Cliente (5 atributos)
+* `Age`, `Gender`, `Country`, `City`, `Membership_Years`.
+
+### 2. Interacción con la Plataforma (8 atributos)
+* `Login_Frequency`, `Session_Duration_Avg`, `Pages_Per_Session`.
+* `Cart_Abandonment_Rate`, `Wishlist_Items`, `Email_Open_Rate`.
+* `Mobile_App_Usage`, `Social_Media_Engagement_Score`.
+
+### 3. Comportamiento de Compra (6 atributos)
+* `Total_Purchases`, `Average_Order_Value`, `Days_Since_Last_Purchase`.
+* `Discount_Usage_Rate`, `Return_Rate`, `Payment_Method_Diversity`.
+
+### 4. Servicio al Cliente (3 atributos)
+* `Customer_Service_Calls`, `Product_Reviews_Written`, `Lifetime_Value`.
+
+### 5. Estado Financiero (3 atributos)
+* `Credit_Balance`, **`Churned`** (Variable objetivo), `Signup_Quarter`.
+
+---
+
+## Calidad y Formato de los Datos
+* **Valores Nulos:** Contiene algunos valores faltantes (`NaN`) en ciertas columnas (ideal para practicar limpieza).
+* **Variables Numéricas:** Valores continuos como montos de pedido y puntajes de compromiso.
+* **Variables Categóricas:** Género, país, ciudad y métodos de pago.
+* **Indicador Binario:** `Churned` (0 = Activo, 1 = Abandonó).
+
+---
+
+# Problemas
+
 ### 🟢 Nivel Bajo (Fundamentos: SELECT, WHERE, COUNT, DISTINCT)
 
 1. **Países únicos:** ¿Cuáles son todos los países presentes en el dataset sin que se repitan?
